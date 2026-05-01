@@ -57,7 +57,7 @@ const COPY = {
     services_s4_body:  'Bridging the gap between technical and executive audiences, we co-create content using a decade of product design and filmmaking expertise. Partner with us to share the insights that your audience deserves — in podcast or TikTok.',
     /* Capabilities */
     capabilities_eyebrow:  'CORE CAPABILITIES',
-    capabilities_headline: 'Nine roles. One partner.',
+    capabilities_headline: 'Nine in one.',
     capabilities_lede:             'Explore the roles we bring to every project.',
     capabilities_certified_label:  'Certified by:',
     capabilities_node_pd_label:    'Product Designer',
@@ -181,7 +181,7 @@ const COPY = {
     services_s4_body:  'Dominamos el lenguaje ejecutivo y técnico, coreando en base a nuestra década en diseño digital y producción audiovisual. Estaremos encantados compartir nuestro enfoque con su audiencia — desde podcasts hasta Tiktok.',
     /* Capabilities */
     capabilities_eyebrow:          'NUESTRAS COMPETENCIAS',
-    capabilities_headline:         'Nueve perfiles. Una conversación.',
+    capabilities_headline:         'Nueve en uno.',
     capabilities_lede:             'Explore los roles que llevamos a cada proyecto.',
     capabilities_certified_label:  'Respaldado por:',
     capabilities_node_pd_label:    'Product Designer',
@@ -711,7 +711,7 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   // ── Data ──
   const BRANCHES = [
     {
-      id: 'build', label: 'BUILD', angle: 90,
+      id: 'build', label: 'BUILD', labelES: 'CREA', angle: 90,
       color: '#A100FF', glow: 'rgba(161,0,255,0.45)',
       nodes: [
         { id: 'pd',  label: 'Product\nDesigner',    labelES: 'Product\nDesigner',        desc: 'Every interface decision is a bet on user behavior. We design with behavioral assumptions baked into every interaction — tested against real users, not design committee preference.' },
@@ -720,7 +720,7 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       ]
     },
     {
-      id: 'scale', label: 'SCALE', angle: 210,
+      id: 'scale', label: 'SCALE', labelES: 'CRECE', angle: 210,
       color: '#C2A3FF', glow: 'rgba(194,163,255,0.45)',
       nodes: [
         { id: 'cx',  label: 'CX\nLead',          labelES: 'Líder\nCX',          desc: 'Customer journey maps are decorative without an owner for each friction point. We map end-to-end experiences and assign accountability — so improvements have a name attached, not a committee.' },
@@ -729,7 +729,7 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       ]
     },
     {
-      id: 'control', label: 'CONTROL', angle: 330,
+      id: 'control', label: 'CONTROL', labelES: 'CONTROLA', angle: 330,
       color: '#7500C0', glow: 'rgba(117,0,192,0.55)',
       nodes: [
         { id: 'pm',  label: 'Project\nManager',   desc: 'Complex programs lose money in the gaps between workstreams — not in the work itself. We govern multi-project and multi-phase portfolios with the systemic view that separates structure from noise.' },
@@ -748,8 +748,8 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
 
   function getCanvasHeight() {
     if (W <= 480) return 480;
-    if (W <= 767) return 500;
-    return 600;
+    if (W <= 767) return 540;
+    return 680;
   }
 
   function toRad(deg) { return deg * Math.PI / 180; }
@@ -766,9 +766,9 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     cx = W / 2;
     cy = H / 2;
 
-    const branchR = R * 0.21;   // was 0.26 — reduced to prevent node clipping at all breakpoints
-    const childR  = R * 0.16;   // was 0.22
-    const fanSpan = 80;   // was 42 — widened to prevent intra-branch node overlap at all breakpoints
+    const branchR = R * (W <= 767 ? 0.21 : 0.24);
+    const childR  = R * (W <= 767 ? 0.16 : 0.18);
+    const fanSpan = W <= 767 ? 80 : 68;
 
     nodes = [];
 
@@ -884,42 +884,22 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   }
 
   function drawBranchLabel(branch) {
-    const bx    = branch._bx;
-    const by    = branch._by;
-    const fSize = W < 480 ? 13 : 16;
+    const bx     = branch._bx;
+    const by     = branch._by;
+    const fSize  = W < 480 ? 13 : 16;
+    const bLang  = document.documentElement.dataset.lang || 'EN';
+    const bLabel = (bLang === 'ES' && branch.labelES) ? branch.labelES : branch.label;
 
     ctx.font         = `600 ${fSize}px 'Graphik', Arial, sans-serif`;
     ctx.textAlign    = 'center';
     ctx.textBaseline = 'middle';
-
-    const tw = ctx.measureText(branch.label).width + 28;
-    const th = fSize * 1.2 + 14;
-    const px = bx - tw / 2;
-    const py = by - th / 2;
-
-    ctx.beginPath();
-    ctx.rect(px, py, tw, th);
-    ctx.fillStyle   = hexAlpha(branch.color, 0.10);
-    ctx.fill();
-    ctx.strokeStyle = hexAlpha(branch.color, 0.45);
-    ctx.lineWidth   = 1;
-    ctx.stroke();
-
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillText(branch.label, bx, by);
+    ctx.fillStyle    = '#FFFFFF';
+    ctx.fillText(bLabel, bx, by);
   }
 
   function drawCenter(t) {
     const pulse = 1 + Math.sin(t * 0.8) * 0.015;
     const r     = (W < 480 ? 52 : 64) * pulse;
-
-    for (let i = 3; i >= 1; i--) {
-      ctx.beginPath();
-      ctx.arc(cx, cy, r + i * 12, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(161,0,255,${0.04 * i})`;
-      ctx.lineWidth   = 1;
-      ctx.stroke();
-    }
 
     const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, r * 1.15);
     grd.addColorStop(0, 'rgba(161,0,255,0.10)');
@@ -928,12 +908,6 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     ctx.arc(cx, cy, r * 1.15, 0, Math.PI * 2);
     ctx.fillStyle = grd;
     ctx.fill();
-
-    ctx.beginPath();
-    ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(161,0,255,0.50)';
-    ctx.lineWidth   = 1.4;
-    ctx.stroke();
 
     if (logoReady) {
       const logoAspect = 90 / 36; // native SVG viewBox 90×36
