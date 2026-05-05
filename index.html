@@ -723,8 +723,14 @@
 
           <div class="contact__success" id="formSuccess" role="status" aria-live="polite">
             <div class="contact__success-bar" aria-hidden="true"></div>
-            <h3 class="contact__success-headline" data-i18n="contact_success_headline">Message received.</h3>
-            <p class="contact__success-body" data-i18n="contact_success_body">Responses go out within 24 hours. If there's a fit, we'll book a first conversation.</p>
+            <h3 class="contact__success-headline" data-i18n="contact_success_headline">Message sent.</h3>
+            <p class="contact__success-body" data-i18n="contact_success_body">Check your email for response within 24 business hours.</p>
+            <button type="button" class="cta" id="formSuccessReset" aria-label="Start a new message">
+              <span class="cta__label" data-i18n="contact_success_new">New message</span>
+              <span class="cta__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+            </button>
           </div>
 
           <form class="contact__form" id="contactForm"

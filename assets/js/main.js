@@ -114,8 +114,9 @@ const COPY = {
     contact_err_msg:               'A message is required.',
     contact_disclaimer:            'Response within 24 business hours.',
     contact_submit:                'Send message',
-    contact_success_headline:      'Message received.',
-    contact_success_body:          'Responses go out within 24 hours. If there\'s a fit, we\'ll book a first conversation.',
+    contact_success_headline:      'Message sent.',
+    contact_success_body:          'Check your email for response within 24 business hours.',
+    contact_success_new:           'New message',
     contact_wa_label:              'WhatsApp (optional)',
     contact_wa_placeholder:        '+51 999 000 000',
     contact_form_bridge:           'Or fill out form:',
@@ -240,8 +241,9 @@ const COPY = {
     contact_err_msg:               'El mensaje es requerido.',
     contact_disclaimer:            'Respondemos en 24 horas.',
     contact_submit:                'Enviar mensaje',
-    contact_success_headline:      'Mensaje recibido.',
-    contact_success_body:          'Respondemos en 24 horas. Si hay fit, agendamos la primera conversación.',
+    contact_success_headline:      'Mensaje enviado.',
+    contact_success_body:          'Revise su correo. Respondemos en 24 horas hábiles.',
+    contact_success_new:           'Nuevo mensaje',
     contact_wa_label:              'WhatsApp (opcional)',
     contact_wa_placeholder:        '+51 999 000 000',
     contact_form_bridge:           'O complete formulario:',
@@ -541,7 +543,7 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
 
   if (contactForm) {
     const contactFields = [
-      { id: 'field-name',    input: 'fullName',       test: function (v) { return v.trim().length >= 2; } },
+      { id: 'field-name',    input: 'fullName',       test: function (v) { var t = v.trim(); return t.length >= 2 && /^[a-zA-ZÀ-ÿ\s'\-\.]+$/.test(t); } },
       { id: 'field-email',   input: 'email',          test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
       { id: 'field-type',    input: 'engagementType', test: function (v) { return v !== ''; } },
       { id: 'field-message', input: 'message',        test: function (v) { return v.trim().length >= 10; } }
@@ -555,13 +557,6 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       wrapper.classList.toggle('has-error', !valid);
       return valid;
     }
-
-    contactFields.forEach(function (field) {
-      const input = document.getElementById(field.input);
-      if (input) {
-        input.addEventListener('blur', function () { validateContactField(field); });
-      }
-    });
 
     contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -591,6 +586,20 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
         console.error('Form submission error:', err);
       }
     });
+
+    var successResetBtn = document.getElementById('formSuccessReset');
+    if (successResetBtn) {
+      successResetBtn.addEventListener('click', function () {
+        contactForm.classList.remove('is-submitted');
+        if (contactSuccess) contactSuccess.classList.remove('is-visible');
+        contactForm.reset();
+        contactFields.forEach(function (field) {
+          var wrapper = document.getElementById(field.id);
+          if (wrapper) wrapper.classList.remove('has-error');
+        });
+        if (engagementSelect) engagementSelect.classList.add('is-placeholder');
+      });
+    }
   }
 })();
 
