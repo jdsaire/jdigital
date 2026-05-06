@@ -155,7 +155,7 @@ const COPY = {
     hero_cta:         'Explorar',
     hero_cta_aria:    'Explorar proyectos — casos de estudio',
     work_eyebrow:     'PORTAFOLIO',
-    work_heading:     'Proyectos que hablan solos.',
+    work_heading:     'Proyectos destacados.',
     work_lede:        'Explore el trabajo que dejó huella.',
     work_cta:         'Explorar',
     work_card1_label:   'Build',
