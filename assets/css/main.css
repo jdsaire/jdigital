@@ -1165,7 +1165,7 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(2rem, 3vw, 3rem);
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
   align-items: start;
 }
 .contact__form-wrapper {
@@ -1256,7 +1256,6 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 0.5rem;
 }
 .contact__disclaimer {
   font-size: 0.75rem;
@@ -1265,21 +1264,23 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
   max-width: 18rem;
 }
 .contact__submit-row .cta { margin-bottom: 0; }
-/* ── Contact v6 — conditional submit-row reveal ──────────── */
-.contact__submit-row {
-  transition: opacity 200ms var(--ease-standard),
-              transform 200ms var(--ease-standard),
-              visibility 0ms 0ms;
-}
-.contact__form:not(.contact__form--collab):not(.contact__form--brief)
-  .contact__submit-row {
+/* ── Contact v6 — submit-row collapse (replaces P5 opacity hide) ── */
+.contact__submit-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 200ms var(--ease-standard),
+              opacity 200ms var(--ease-standard);
   opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity 200ms var(--ease-standard),
-              transform 200ms var(--ease-standard),
-              visibility 0ms 200ms;
+}
+.contact__submit-collapse > .contact__submit-row {
+  overflow: hidden;
+  min-height: 0;
+}
+.contact__form--collab .contact__submit-collapse,
+.contact__form--brief  .contact__submit-collapse {
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
 .contact__success {
   display: none;
