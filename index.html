@@ -801,8 +801,8 @@
             <!-- Path 2: Brief request fields (hidden by default; P4 toggles visibility) -->
             <div class="contact__fields contact__fields--brief">
 
-              <!-- Case selector -->
-              <div class="contact__form-row">
+              <!-- Case selector + Context -->
+              <div class="contact__form-row contact__form-row--case-context">
                 <div class="contact__field" id="brief-field-case">
                   <label class="contact__label" for="contact-brief-case" data-i18n="contact_case_label"></label>
                   <div class="contact__select-wrapper">
@@ -816,6 +816,13 @@
                     </select>
                   </div>
                   <span class="contact__hint" aria-live="polite" data-i18n="contact_brief_err_case">Please select a case study.</span>
+                </div>
+                <div class="contact__field" id="brief-field-context">
+                  <label class="contact__label" for="contact-brief-context" data-i18n="contact_context_label"></label>
+                  <textarea class="contact__textarea" id="contact-brief-context" name="context"
+                            data-i18n-placeholder="contact_context_placeholder"
+                            required aria-required="true"></textarea>
+                  <span class="contact__hint" aria-live="polite" data-i18n="contact_brief_err_context">Please share where we met or who referred you.</span>
                 </div>
               </div>
 
@@ -853,15 +860,6 @@
                          autocomplete="organization-title" required />
                   <span class="contact__hint" aria-live="polite" data-i18n="contact_brief_err_role">Role is required.</span>
                 </div>
-              </div>
-
-              <!-- Context -->
-              <div class="contact__field" id="brief-field-context">
-                <label class="contact__label" for="contact-brief-context" data-i18n="contact_context_label"></label>
-                <textarea class="contact__textarea" id="contact-brief-context" name="context"
-                          data-i18n-placeholder="contact_context_placeholder"
-                          required aria-required="true"></textarea>
-                <span class="contact__hint" aria-live="polite" data-i18n="contact_brief_err_context">Please share where we met or who referred you.</span>
               </div>
 
             </div>
