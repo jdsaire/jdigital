@@ -1333,7 +1333,7 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 .contact__intent-label {
   display: block;
