@@ -53,7 +53,7 @@ function swapLang(lang) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function () { swapLang('EN'); });
+document.addEventListener('DOMContentLoaded', function () { swapLang('ES'); });
 
 /* ============================================================
    NAV scroll hide/show
