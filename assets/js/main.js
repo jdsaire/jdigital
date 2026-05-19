@@ -151,6 +151,11 @@ const COPY = {
     footer_terms:          'Terms & Conditions',
     footer_accessibility:  'Accessibility Statement',
     footer_copyright:      '© 2026 JDigital. All Rights Reserved.',
+
+    /* MICRO-ABOUT */
+    micro_about_image_alt:   'Juan Diego Saire, founder of JDigital, in Lima.',
+    micro_about_heading:     'JDigital is not an agency; it is my personal brand, my statement of execution.',
+    micro_about_attribution: 'Juan Diego Saire — Founder, JDigital',
   },
   ES: {
     nav_work:         'Portafolio',
@@ -299,6 +304,11 @@ const COPY = {
     footer_terms:          'Términos y condiciones',
     footer_accessibility:  'Declaración de accesibilidad',
     footer_copyright:      '© 2026 JDigital. Todos los derechos reservados.',
+
+    /* MICRO-ABOUT */
+    micro_about_image_alt:   'Juan Diego Saire, fundador de JDigital, en Lima.',
+    micro_about_heading:     'JDigital no es una consultora; es mi marca personal, el estándar que lleva mi nombre.',
+    micro_about_attribution: 'Juan Diego Saire — Fundador, JDigital',
   }
 };
 
