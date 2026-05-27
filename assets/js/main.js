@@ -810,17 +810,15 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
 
 
 /* ============================================================
-   ===== CONTACT V5 (Contact2) — parallel test =====
-   Gemini build validation + modal logic, wrapped in an IIFE so
-   variables/listeners don't leak into the global scope or
-   collide with the legacy contact handler. All DOM selectors
-   carry the "2" suffix to match the renamed Contact2 IDs.
-   Logic preserved 1:1; no behavior changes vs. Gemini source.
+   ===== CONTACT =====
+   Dual-intent contact form validation + success modal logic,
+   wrapped in an IIFE so variables/listeners don't leak into
+   the global scope.
    ============================================================ */
 (function () {
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
-    if (!form) return; // safety: bail if Contact2 isn't on the page
+    if (!form) return; // safety: bail if Contact form isn't on the page
 
     const intentRadios = form.querySelectorAll('input[name="intent"]');
     const cardCollab = document.getElementById('card-collab');
@@ -1013,4 +1011,4 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
 
   });
 })();
-/* ===== END CONTACT V5 (Contact2) ===== */
+/* ===== END CONTACT ===== */

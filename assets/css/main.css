@@ -1625,15 +1625,15 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
 }
 
 /* ============================================================
-   ===== CONTACT V5 (Contact2) — parallel test =====
-   Gemini build styles appended verbatim; selectors scoped to
+   ===== CONTACT =====
+   Dual-intent contact organism styles. Selectors scoped to
    #contact (or #successModal for the modal which lives at
-   document root). Brand-token migration handled in PR2.
+   document root).
    ============================================================ */
 
-/* Gemini :root additions — existing tokens (brand-purple, purple-hover,
-   font-primary, fw-*, ease-standard, duration-ui) are reused from global :root.
-   Only genuinely new tokens are declared here. */
+/* Contact-specific token additions — existing tokens (brand-purple,
+   purple-hover, font-primary, fw-*, ease-standard, duration-ui) are
+   reused from global :root. Only genuinely new tokens are declared here. */
 :root {
   --color-border-hover:  rgba(255, 255, 255, 0.22);
   --color-error:         #FF4444;
@@ -1643,8 +1643,8 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
   --color-modal-overlay: rgba(10, 10, 10, 0.85);
 }
 
-/* Scroll-lock while Contact2 modal is open. Global by design —
-   needed for the body overflow lock per Gemini logic. */
+/* Scroll-lock while the contact modal is open. Global by design —
+   needed for the body overflow lock. */
 body.modal-open {
   overflow: hidden;
 }
@@ -2057,7 +2057,7 @@ body.modal-open {
     width: fit-content;
   }
 }
-/* Respect user motion preference: disable Contact2 transitions/animations */
+/* Respect user motion preference: disable Contact transitions/animations */
 @media (prefers-reduced-motion: reduce) {
   #contact .intent-card,
   #contact .form-input,
@@ -2072,4 +2072,4 @@ body.modal-open {
     animation: none !important;
   }
 }
-/* ===== END CONTACT V5 (Contact2) ===== */
+/* ===== END CONTACT ===== */
