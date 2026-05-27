@@ -1102,12 +1102,27 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     const modalBody     = document.getElementById('modalBody2');
 
     let currentActivePath = null;
+    let lastFocusedElement = null;
 
-    // Helper: set disabled/enabled state for elements inside a container
+    // Helper: set disabled/enabled state for elements inside a container.
+    // Also strips/restores `required` so hidden-path fields don't leak
+    // validation onto the active path.
     const setFieldsDisabled = (container, disabled) => {
       const fields = container.querySelectorAll('input, select, textarea');
       fields.forEach(field => {
-        field.disabled = disabled;
+        if (disabled) {
+          if (field.hasAttribute('required')) {
+            field.dataset.wasRequired = 'true';
+            field.removeAttribute('required');
+          }
+          field.disabled = true;
+        } else {
+          field.disabled = false;
+          if (field.dataset.wasRequired === 'true') {
+            field.setAttribute('required', '');
+            delete field.dataset.wasRequired;
+          }
+        }
         const group = field.closest('.form-group');
         if (group) group.classList.remove('has-error');
       });
@@ -1231,15 +1246,20 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
         modalBody.textContent = "We appreciate your submission. We’re reviewing your request. Check back your email in 48 hours for a response.";
       }
 
+      lastFocusedElement = document.activeElement;
       modalOverlay.classList.add('is-active');
       modalOverlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('modal-open');
+      if (modalCloseBtn) modalCloseBtn.focus();
     };
 
     const closeModal = () => {
       modalOverlay.classList.remove('is-active');
       modalOverlay.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('modal-open');
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
     };
 
     // Modal Dismissal listeners

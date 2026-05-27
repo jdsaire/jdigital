@@ -2035,6 +2035,11 @@ body.modal-open {
   border-color: var(--color-brand-purple);
   background: #141118;
 }
+/* Visible keyboard focus for the intent cards (hidden radio is opacity:0) */
+#contact2 .intent-card:has(.intent-input:focus-visible) {
+  outline: 2px solid var(--color-brand-purple);
+  outline-offset: 2px;
+}
 #contact2 .intent-card-content {
   display: flex;
   flex-direction: column;
@@ -2335,6 +2340,21 @@ body.modal-open {
   #contact2 .submit-btn {
     justify-content: flex-start;
     width: fit-content;
+  }
+}
+/* Respect user motion preference: disable Contact2 transitions/animations */
+@media (prefers-reduced-motion: reduce) {
+  #contact2 .intent-card,
+  #contact2 .form-input,
+  #contact2 .form-select,
+  #contact2 .form-textarea,
+  #contact2 .submit-btn,
+  #contact2 .submit-icon,
+  #successModal2,
+  #successModal2 .modal-window,
+  #successModal2 .modal-close-btn {
+    transition: none !important;
+    animation: none !important;
   }
 }
 /* ===== END CONTACT V5 (Contact2) ===== */
