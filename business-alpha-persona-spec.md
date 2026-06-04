@@ -38,5 +38,4 @@ Derived from: *The High-Value Alpha Persona* (archetype mechanics only), *T1 Off
 
 ## Hard factual DO-NOTs *(from T1 — non-negotiable)*
 - Never use **"12-project portfolio"** — contradicts shipped truth.
-- Never state a **specific Microsoft PM certification** — unverified, flagged `[uncertain]`.
 - Frame **TUUA** as operational standard-setting, not the detached audit.
