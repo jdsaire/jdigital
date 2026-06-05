@@ -2167,13 +2167,23 @@ body.modal-open {
 .ticker__logo {
   display: block;
   flex-shrink: 0;
-  width: clamp(140px, 15vw, 200px);
+  width: 150px;
   height: auto;
-  filter: brightness(0) invert(1);
   opacity: 0.55;
   transform: translateZ(0);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+}
+@media (min-width: 641px) {
+  .ticker__logo { width: 200px; }
+}
+@media (min-width: 1024px) {
+  .ticker__logo { width: 300px; }
+}
+
+/* Lane 2 SVGs contain raster bitmaps that need recoloring; Lane 1 PNGs are white-on-transparent */
+.ticker__band--lane2 .ticker__logo {
+  filter: brightness(0) invert(1);
 }
 
 .ticker__logo:hover,
