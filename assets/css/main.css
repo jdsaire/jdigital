@@ -1179,7 +1179,16 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
   flex-direction: column;
   gap: 1.5rem;
 }
-.footer .cta { margin-bottom: 0.75rem; }
+.footer .cta { margin-bottom: 0.75rem; color: var(--color-brand-purple); }
+.footer .cta:hover,
+.footer .cta:focus-visible { color: var(--color-purple-hover); }
+.footer__linkedin-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
 .footer__tagline {
   font-size: clamp(1.875rem, 3.6vw, 3rem);
   font-weight: var(--fw-bold);
@@ -1188,7 +1197,7 @@ button.cta { background:none; border:none; font-family:var(--font-primary); }
   color: var(--color-brand-white);
   white-space: nowrap;
 }
-.footer__tagline .purple { color: var(--color-brand-purple); }
+.footer__tagline .purple { color: var(--color-brand-purple); display: block; }
 .footer__columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2041,6 +2050,10 @@ body.modal-open {
 
 /* ── Responsive Adaptation ──────────────────────────────────── */
 @media (max-width: 767px) {
+  #contact .contact-header {
+    text-align: left;
+    align-items: flex-start;
+  }
   #contact .intent-cards {
     grid-template-columns: 1fr;
     gap: 1rem;
