@@ -25,13 +25,21 @@ Especialista en DesignOps (Ingeniero Industrial, MBA), enfocado en escalar y gob
 
 **Practicante de Proyectos y Contratos** — Hunt LNG Operating Company (primera planta de licuefacción de gas natural de Sudamérica), Cañete · May 2015 – Abr 2016
 
-- Coordiné recursos, logística y proveedores en 35 proyectos de ingeniería, procura y construcción (EPC), asegurando los entregables de contratistas contra estándares de calidad, plazos y especificaciones técnicas — cimiento de mi capacidad para trabajar y coordinar con agencias de diseño digital.
+- Coordiné recursos, logística y proveedores en 35 proyectos de ingeniería, procura y construcción (EPC), asegurando los entregables de contratistas contra estándares de calidad, plazos y especificaciones técnicas.
 
 ## Proyectos
 
-**JDigital** (Portafolio · 2025 – presente) — Plataforma web que diseñé, construí y goberné de extremo a extremo: un sistema de tokens (color, tipografía, espaciado) donde un cambio se propaga a todo el sitio, arquitectura de 10 organismos reutilizables y un motor de internacionalización propio de 175 claves EN/ES (SwapLang), con cumplimiento WCAG AA y diseño responsive. Construida con Claude Code y Google AI Studio sobre HTML/CSS/JS sin frameworks: gobernanza real de un sistema de diseño.
+**JDigital Web** —  Plataforma web responsiva diseñada, construida y gobernada de extremo a extremo, con cumplimiento de accesibilidad WCAG AA · Oct 2025 – presente
 
-**LimaFly** (Figma · 2024) — Prototipo de alta fidelidad con sistema de diseño definido —iconografía, tipografía y paleta propias—, inspirado en referentes como Singapur y Ámsterdam. Cubre el journey completo del pasajero, de la pre-experiencia de viaje a la sala de embarque, centralizando la información ante disrupciones y sumando una capa comercial de gamificación para viajeros frecuentes en la nueva terminal.
+- Mi visión fue construir un activo digital para posicionarme como potencial Tech Lead ante corporaciones líderes. Estructuré un funnel enfocado en asegurar colaboraciones estratégicas.
+- Implementé un sistema de tokens (color, tipografía, espaciado) de propagación global, 10 organismos reutilizables y motor de internacionalización propio (SwapLang, 175 claves EN/ES), desplegando HTML/CSS/JS nativo apalancando IA (Claude Code, Google AI Studio) para acelerar iteraciones.
+- La web se encuentra en GitHub, con v1 finalizada. La plataforma está libre de bugs y se integra con Formspree para administrar solicitudes de forma exclusiva.
+
+**LimaFly App** — Prototipo de alta fidelidad enfocado en acompañar el journey completo del pasajero, desde la pre-experiencia de viaje hasta la sala de embarque · Feb 2024 - Oct 2024
+
+- Busqué crear un hub de centralización de información para mitigar disrupciones operativas, así como integrar una capa comercial para viajeros frecuentes, beneficiando a todo el ecosistema aeroportuario peruano.
+- Construí en Figma el ecosistema escalable de colores, tipografía e iconografía, gobernando mediante variables locales para tokens, componentes con variantes y Auto Layout avanzado.
+- El proyecto fue presentado como artefacto para proceso de selección en Lima Airport. De forma particular, será retomado para desarrollarlo en Claude Code ahora la operación del nuevo aeropuerto.
 
 ## Educación
 
