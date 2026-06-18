@@ -39,7 +39,7 @@ Especialista en DesignOps (Ingeniero Industrial, MBA), enfocado en escalar y gob
 
 - Busqué crear un hub de centralización de información para mitigar disrupciones operativas, así como integrar una capa comercial para viajeros frecuentes, beneficiando a todo el ecosistema aeroportuario peruano.
 - Construí en Figma el ecosistema escalable de colores, tipografía e iconografía, gobernando mediante variables locales para tokens, componentes con variantes y Auto Layout avanzado.
-- El proyecto fue presentado como artefacto para proceso de selección en Lima Airport. De forma particular, será retomado para desarrollarlo en Claude Code ahora la operación del nuevo aeropuerto.
+- El proyecto fue presentado como artefacto para proceso de selección en Lima Airport. De forma particular, será retomado para desarrollarlo en el contexto del nuevo aeropuerto.
 
 ## Educación
 
